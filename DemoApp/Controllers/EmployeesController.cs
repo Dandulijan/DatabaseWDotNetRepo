@@ -165,10 +165,19 @@ namespace DemoApp.Controllers
             foreach (var item in DeletedEmployees)
             {
 
-                item.IsDeleted = false;
-                Console.WriteLine(item);
-                db.Employees.Add(item);
-       
+                //item.IsDeleted = false;
+                //Console.WriteLine(item);
+                //db.Employees.Add(item);
+
+                var existingEmp = db.Employees.FirstOrDefault(e => e.EmployeeId == item.EmployeeId);
+                if (existingEmp != null)
+                {
+                    existingEmp.IsDeleted = false;
+                    db.Update(existingEmp);
+                    db.SaveChanges();
+                }
+
+
             }
 
 
