@@ -1,0 +1,19 @@
+﻿@model Employee
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+@* <h1> Are you sure you want to delete @Model.Name employee?</h1> *@
+
+@* <a asp-action="Delete" asp-controller="Employees" asp-route-id="@Model.EmployeeId" class="btn btn-outline-success">yes</a> *@
+@* <a asp-route="AllEmployees" class="btn btn-outline-danger">no</a> *@
+
+<h1>do you want to delete @Model.Name ?</h1>
+<form method="post" asp-action="ConfirmDelete" asp-asp-controller="Employees">
+	@Html.HiddenFor(x => x.EmployeeId)
+	<input type="submit"  value="yes" class="btn btn-success" />
+	<a asp-action="index" class="btn btn-outline-secondary">Cancel</a>
+</form>

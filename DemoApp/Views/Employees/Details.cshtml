@@ -1,0 +1,36 @@
+﻿@model Employee
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div class="container py-5">
+    <div class="card mx-auto" style="max-width: 400px;">
+        <div class="card-header text-center bg-primary text-white">
+            @Model.Name's Details
+        </div>
+        <div class="card-body text-center">
+
+            <h5 class="card-title mb-1">@Model.Name</h5>
+            <ul class="list-unstyled mb-3">
+                <li><strong>Salary:</strong> @Model.Salary </li>
+                <li><strong>Email:</strong> @Model.Email</li>
+            </ul>
+            <p class="card-text">Employee Status:
+
+				@if (Model.isActive)
+				{
+					<span class=" text-success" role="alert">Active</span>
+				}
+				else
+				{
+					<span class=" text-danger" role="alert">Non-Active</span>
+				}
+              </p>
+        </div>
+        <div class="card-footer text-muted text-center">
+			Employee ID: @Model.EmployeeId
+        </div>
+    </div>
+</div>
